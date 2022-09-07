@@ -1,9 +1,9 @@
 @extends('layout.template')
 
-@section('title', 'View ' . $product->id)
+@section('title', $product->nombre)
 
 @section('content')
-    <a href="{{route('product.index')}}">
+    <a href="{{ route('products.index') }}">
         Volver al inicio
     </a>
     <h1>Id producto: {{$product->id}}</h1>

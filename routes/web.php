@@ -19,8 +19,8 @@ Route::get('/', function () {
 });
 
 Route::controller(ProductController::class)->group(function() {
-    Route::get('product', 'index')->name('product.index');
-    Route::get('product/create', 'create')->name('product.create');
-    Route::get('product/view/{id}', 'view')->name('product.view');
+    Route::get('products/index', 'index')->name('products.index');
+    Route::get('products/create', 'create')->name('products.create');
+    Route::get('products/view/{id}', 'view')->name('products.view');
 });
 
