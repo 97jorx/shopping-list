@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::controller(ProductController::class)->group(function() {
     Route::get('products/index', 'index')->name('products.index');

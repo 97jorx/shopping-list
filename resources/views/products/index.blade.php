@@ -4,9 +4,7 @@
 
 @section('content')
 
-    <h1 class='text-2xl mb-6'>Index products</h1>
-
-    <div class="grid grid-cols-4 gap-4 mb-6">
+    <div class="products-box text-xl grid grid-cols-4 gap-4 mb-10">
 
         @foreach ($products as $product)
             <a href="{{ route('products.view', $product->id) }}" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
