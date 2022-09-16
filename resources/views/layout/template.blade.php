@@ -16,7 +16,7 @@
         @include('layout.navigation')
 
         {{-- CONTENT --}}
-        <div class="container mx-auto">
+        <div class="container">
             @yield('content')
         </div>
 

@@ -21,7 +21,7 @@ return new class extends Migration
 
             $table->foreign('list_id')
                   ->references('id')
-                  ->on('lists');
+                  ->on('shopping_lists');
 
 
             $table->foreign('product_id')
