@@ -16,7 +16,7 @@ class ShoppingListController extends Controller
 
   public function index()
   {
-    $lists = ShoppingList::paginate(15);
+    $lists = ShoppingList::paginate(6);
 
     return view('lists.index', compact('lists'));
 

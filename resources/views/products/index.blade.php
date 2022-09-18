@@ -5,12 +5,20 @@
 @section('content')
 
     @if ($products->isNotEmpty())
-        <div class="products-box text-xl grid grid-cols-4 gap-4 mb-10">
+        <div class="products-box grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-5 ">
             @foreach ($products as $product)
-                <a href="{{ route('products.view', $product->id) }}" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="font-bold tracking-tight text-gray-900 dark:text-white">{{$product->nombre}}</h5>
-                    <p class="text-gray-700 dark:text-gray-400">{{$product->categoria}}</p>
-                </a>
+
+                <div class='flex flex-col text-center rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'>
+
+                    <h2 class="h-12 m-6">{{$product->nombre}}</h2>
+
+                    <div class="text-xl border rounded">
+                        <i class="hover:text-lime-500 text-blue-300 fa fa-plus-circle" aria-hidden="true"></i>
+                        <i class="hover:text-red-500 text-blue-300 fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
+
+                </div>
+
             @endforeach
         </div>
     @else
@@ -22,7 +30,7 @@
         <img class='gif-logo mx-auto object-cover h-48 w-96' src="{{ asset('storage/nothing-logo.gif') }}" alt="nothing">
     @endif
 
-    <div class='flex flex-wrap'>
+    <div class='flex flex-wrap justify-center mt-14'>
         {{$products->links()}}
     </div>
 

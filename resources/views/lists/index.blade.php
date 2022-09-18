@@ -4,31 +4,40 @@
 
 @section('content')
 
-    <div class="lists-box text-xl grid grid-cols-4 gap-4 mb-10">
-
     @if ($lists->isNotEmpty())
-        <div class="lists-box text-xl grid grid-cols-4 gap-4 mb-10">
-            @foreach ($lists as $list)
-                <a href="{{ route('lists.view', $list->id) }}" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="font-bold tracking-tight text-gray-900 dark:text-white">{{$list->nombre}}</h5>
-                    <p class="text-gray-700 dark:text-gray-400">{{$list->categoria}}</p>
-                </a>
-            @endforeach
+        <div>
+            <table class="mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-800 overflow-hidden">
+                <thead class="text-white bg-zinc-600">
+                    <tr>
+                        <th class="px-8 py-6 uppercase">
+                            Listas de la compra
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    @foreach ($lists as $list)
+                            <tr>
+                                <td class="px-8 py-6 border border-slate-200">
+                                    {{$list->nombre}}
+                                </td>
+                            </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-    @else
-        <div class="max-w-screen-lg bg-white rounded-lg mx-auto text-center py-11 mt-4">
-            <h2 class="text-2xl leading-9 font-bold tracking-tight text-gray-800 sm:text-2xl sm:leading-10">
+        @else
+        <div class="max-w-screen-lg bg-white mx-auto rounded-lg text-center py-11 mt-4">
+            <h5 class="text-2xl leading-9 font-bold tracking-tight text-gray-800 sm:text-2xl sm:leading-10">
                 No se han encontrado productos.
-            </h2>
+            </h5>
         </div>
-        <img class='gif-logo mx-auto object-cover h-48 w-96' src="{{ asset('storage/nothing-logo.gif') }}" alt="nothing">
-    @endif
+        <img class='gif-logo object-cover mx-auto h-48 w-96' src="{{ asset('storage/nothing-logo.gif') }}" alt="nothing">
+        @endif
 
-    </div>
+        <div class='flex flex-wrap justify-center mt-14'>
+            {{$lists->links()}}
+        </div>
 
-    <div class='flex flex-wrap'>
-        {{$lists->links()}}
-    </div>
 
 @endsection
 
