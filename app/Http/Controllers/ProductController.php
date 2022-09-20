@@ -21,7 +21,7 @@ class ProductController extends Controller
     $product->categoria = $request->categoria;
     $product->save();
 
-    return redirect()->route('product.view', $product);
+    return redirect()->route('products.view', $product);
   }
 
 
