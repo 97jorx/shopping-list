@@ -20,12 +20,14 @@ class ProductController extends Controller
     $product->nombre = $request->nombre;
     $product->categoria = $request->categoria;
     $product->save();
+
+    return redirect()->route('product.view', $product);
   }
 
 
   public function index()
   {
-    $products = Product::paginate(12);
+    $products = Product::orderBy('id', 'desc')->paginate(12);
 
     return view('products.index', compact('products'));
 

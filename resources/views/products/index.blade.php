@@ -6,10 +6,10 @@
 
     <div class="product-buttons mb-12 mx-6 flex justify-center sm:justify-center md:justify-center lg:justify-start inline-flex items-center">
 
-        <button class="border-2 cursor-pointer rounded-2xl hover:border-lime-500 border-gray-400 font-bold py-4 px-4 rounded ">
+        <a href="{{ route('products.create') }}" class="border-2 cursor-pointer rounded-2xl hover:border-lime-500 border-gray-400 font-bold py-4 px-4 rounded ">
             <i class="text-grey-300  fa fa-plus-circle" aria-hidden="true"></i>
             <span class='pl-3'>Añadir producto</span>
-        </button>
+        </a>
 
     </div>
 
