@@ -14,6 +14,15 @@ class ProductController extends Controller
 
   }
 
+  public function store(Request $request)
+  {
+    $product = new Product();
+    $product->nombre = $request->nombre;
+    $product->categoria = $request->categoria;
+    $product->save();
+  }
+
+
   public function index()
   {
     $products = Product::paginate(12);
