@@ -14,9 +14,33 @@ class ProductController extends Controller
 
   }
 
+  public function store(Request $request)
+  {
+
+    $request->validate([
+        'nombre' => 'required',
+        'categoria' => 'required',
+    ],
+    [
+        'nombre.required' => 'El nombre del producto no puede estar vacío!',
+        'categoria.required' => 'La categoría no puede estar vacía!'
+    ]);
+
+
+
+
+    $product = new Product();
+    $product->nombre = $request->nombre;
+    $product->categoria = $request->categoria;
+    $product->save();
+
+    return redirect()->route('products.view', $product);
+  }
+
+
   public function index()
   {
-    $products = Product::paginate(12);
+    $products = Product::orderBy('created_at', 'desc')->paginate(12);
 
     return view('products.index', compact('products'));
 

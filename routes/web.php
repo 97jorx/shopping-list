@@ -20,9 +20,13 @@ Route::get('/', function () {
 })->name('home');
 
 Route::controller(ProductController::class)->group(function() {
+
     Route::get('products/index', 'index')->name('products.index');
     Route::get('products/create', 'create')->name('products.create');
     Route::get('products/view/{id}', 'view')->name('products.view');
+
+    Route::post('products', 'store')->name('products.store');
+
 });
 
 Route::controller(ShoppingListController::class)->group(function() {
