@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Uuids;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreProduct;
 
 class ProductController extends Controller
 {
@@ -14,27 +15,16 @@ class ProductController extends Controller
 
   }
 
-  public function store(Request $request)
+  public function store(StoreProduct $request)
   {
-
-    $request->validate([
-        'nombre' => 'required',
-        'categoria' => 'required',
-    ],
-    [
-        'nombre.required' => 'El nombre del producto no puede estar vacío!',
-        'categoria.required' => 'La categoría no puede estar vacía!'
-    ]);
-
-
-
-
     $product = new Product();
     $product->nombre = $request->nombre;
     $product->categoria = $request->categoria;
     $product->save();
 
-    return redirect()->route('products.view', $product);
+    return redirect()
+            ->route('products.view', $product)
+            ->with('success', 'Se ha añadido el producto correctamente.');
   }
 
 
