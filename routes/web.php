@@ -23,7 +23,7 @@ Route::controller(ProductController::class)->group(function() {
 
     Route::get('products/index', 'index')->name('products.index');
     Route::get('products/create', 'create')->name('products.create');
-    Route::get('products/view/{id}', 'view')->name('products.view');
+    Route::get('products/show/{product}', 'show')->name('products.show');
 
     Route::post('products', 'store')->name('products.store');
 
