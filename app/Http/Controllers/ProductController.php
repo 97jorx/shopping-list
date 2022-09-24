@@ -23,7 +23,7 @@ class ProductController extends Controller
     $product->save();
 
     return redirect()
-            ->route('products.view', $product)
+            ->route('products.show', $product)
             ->with('success', 'Se ha añadido el producto correctamente.');
   }
 
@@ -41,6 +41,7 @@ class ProductController extends Controller
     return view('products.create');
   }
 
+
   public function delete(Product $product)
   {
 
@@ -50,12 +51,12 @@ class ProductController extends Controller
             ->route('products.index')
             ->with('success', 'Se ha eliminado correctamente.');
 
-  }
+   }
 
-  public function view($id)
+  
+  public function show(Product $product)
   {
-    $product = Product::findOrFail($id);
-    return view('products.view', compact('product'));
+    return view('products.show', compact('product'));
   }
 
 }
