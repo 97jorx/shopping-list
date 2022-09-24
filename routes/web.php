@@ -25,6 +25,7 @@ Route::controller(ProductController::class)->group(function() {
     Route::get('products/create', 'create')->name('products.create');
     Route::get('products/view/{id}', 'view')->name('products.view');
     Route::delete('products/{product}', 'delete')->name('products.delete');
+    Route::get('products/show/{product}', 'show')->name('products.show');
     Route::post('products', 'store')->name('products.store');
 
 });
