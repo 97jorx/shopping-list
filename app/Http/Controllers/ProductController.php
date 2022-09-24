@@ -41,6 +41,17 @@ class ProductController extends Controller
     return view('products.create');
   }
 
+  public function delete(Product $product)
+  {
+
+    $product->delete();
+
+    return redirect()
+            ->route('products.index')
+            ->with('success', 'Se ha eliminado correctamente.');
+
+  }
+
   public function view($id)
   {
     $product = Product::findOrFail($id);
