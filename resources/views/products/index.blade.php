@@ -25,7 +25,11 @@
                         <div id="dropdown" class="hidden z-10 w-20 text-base list-none rounded border-2 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                             <ul class="py-1" aria-labelledby="dropdownButton">
                             <li>
-                                <a href="#" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Borrar
+                                <form action="{{ route('products.delete', $product) }}" method="POST">
+                                    @csrf
+                                    @method("DELETE")
+                                    <input type="submit" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" value='Borrar'>
+                                </form>
                                 </i></a>
                             </li>
                             <li>
