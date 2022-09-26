@@ -28,18 +28,6 @@ class ProductController extends Controller
   }
 
 
-  public function update(StoreProduct $request, Product $product)
-  {
-    $product->nombre = $request->nombre;
-    $product->categoria = $request->categoria;
-    $product->save();
-
-    return redirect()
-            ->route('products.index', $product)
-            ->with('success', 'Se ha actualizado el producto correctamente.');
-  }
-
-
   public function index()
   {
     $products = Product::orderBy('created_at', 'desc')->paginate(12);
@@ -65,12 +53,7 @@ class ProductController extends Controller
 
    }
 
-  public function edit(Product $product)
-  {
-     return view('products.edit', compact('product'));
-  }
-
-
+  
   public function show(Product $product)
   {
     return view('products.show', compact('product'));
