@@ -5,7 +5,7 @@
 
     <h1 class='mb-10 uppercase font-bold'>Actualizar el producto: {{$product->id}}</h1>
 
-    <form action="{{ route('products.update') }}" method="POST" class="w-full max-w-lg">
+    <form action="{{ route('products.update', $product) }}" method="POST" class="w-full max-w-lg">
         @csrf
         @method('PUT')
         <div class="flex flex-wrap -mx-3 mb-6">
