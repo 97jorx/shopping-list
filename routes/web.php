@@ -21,22 +21,11 @@ Route::get('/', function () {
 
 Route::controller(ProductController::class)->group(function() {
 
-    // TODOS LOS PRODUCTOS
     Route::get('products/index', 'index')->name('products.index');
-
-    // CREACIÓN DEL PRODUCTO
     Route::get('products/create', 'create')->name('products.create');
-    Route::post('products', 'store')->name('products.store');
-
-    // ACTUALIZACIÓN DEL PRODUCTO
-    Route::get('products/edit/{product}', 'edit')->name('products.edit');
-    Route::put('products/{product}', 'update')->name('products.update');
-
-    // BORRADO DEL PRODUCTO
     Route::delete('products/{product}', 'delete')->name('products.delete');
-
-    // DETALLES DEL PRODUCTO
     Route::get('products/show/{product}', 'show')->name('products.show');
+    Route::post('products', 'store')->name('products.store');
 
 });
 
