@@ -4,6 +4,11 @@
 
 @section('content')
 
+    <a href="{{ route('lists.create') }}" class="border-2 cursor-pointer rounded-2xl hover:border-lime-500 border-gray-400 font-bold py-4 px-4 rounded ">
+        <i class="text-grey-300  fa fa-plus-circle" aria-hidden="true"></i>
+        <span class='pl-3'>Crear lista</span>
+    </a>
+
     @if ($lists->isNotEmpty())
         <div>
             <table class="mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-800 overflow-hidden">

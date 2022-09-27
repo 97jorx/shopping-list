@@ -41,7 +41,14 @@ Route::controller(ProductController::class)->group(function() {
 });
 
 Route::controller(ShoppingListController::class)->group(function() {
+
+    // TODAS LAS LISTAS
     Route::get('lists/index', 'index')->name('lists.index');
+
+    // CREACIÓN DE LA LISTA
     Route::get('lists/create', 'create')->name('lists.create');
+    Route::post('lists', 'store')->name('lists.store');
+
+
 });
 
