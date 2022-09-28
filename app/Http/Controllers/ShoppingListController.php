@@ -30,7 +30,7 @@ class ShoppingListController extends Controller
 
   public function index()
   {
-    $lists = ShoppingList::paginate(6);
+    $lists = ShoppingList::paginate(4);
 
     return view('lists.index', compact('lists'));
 
