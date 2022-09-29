@@ -4,18 +4,23 @@
 
 @section('content')
 
-    <a href="{{ route('lists.create') }}" class="border-2 cursor-pointer rounded-2xl hover:border-lime-500 border-gray-400 font-bold mb-5 py-4 px-4 rounded ">
-        <i class="text-grey-300  fa fa-plus-circle" aria-hidden="true"></i>
-        <span class='pl-3'>Crear lista</span>
-    </a>
+
+    <div class="flex justify-center">
+        <form action="{{ route('lists.store') }}" method="POST" >
+            @csrf
+            <i class="absolute ml-5 mt-6 fa fa-plus-circle" aria-hidden="true"></i>
+            <input placeholder="Nombre de la lista..." class="border-2 cursor-pointer lg:w-132 rounded-2xl border-gray-400 font-bold px-12 py-4 rounded"  name='nombre' type="text">
+            <input type="submit" class='hidden' />
+        </form>
+    </div>
 
     @if ($lists->isNotEmpty())
         <div class="flex justify-center">
-            <div class="mt-10 border-2 w-132 h-full rounded-2xl border-zinc-600 ">
+            <div class="mt-10 border-2 w-132 h-full rounded-2xl border-gray-400">
                 @foreach ($lists as $key => $list)
                     <label for='checkbox{{$key}}'>
                         <div class="border-b-2 border-gray-500 cursor">
-                            <div class="flex items-center  h-24 pl-5">
+                            <div class="flex items-center h-24 pl-5">
                                 <input id='checkbox{{$key}}' type="checkbox" class="h-4 w-4 rounded-full shadow" />
                                 <span class="pl-8">{{$list->nombre}}</span>
                             </div>
@@ -24,8 +29,8 @@
                 @endforeach
                 <div id="footer-list" class="flex justify-center mt-5 mb-5 space-x-10 text-xs uppercase">
                     <div class="basis-2/4">Mostrando {{count($lists)}} elementos</div>
-                    <div><a href="">Marcar todas</a></div>
-                    <div><a href="">Eliminar</a></div>
+                    <a class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full">Marcar todas</a>
+                    <a class="cursor-pointer bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-full">Eliminar</a>
                 </div>
             </div>
         </div>
