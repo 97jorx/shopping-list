@@ -13,13 +13,20 @@
         <div class="flex justify-center">
             <div class="mt-10 border-2 w-132 h-full rounded-2xl border-zinc-600 ">
                 @foreach ($lists as $list)
-                    <div class="{{ !$loop->last ? 'border-b-2 border-gray-500' : '' }}">
-                        <div class="m-8">
-                            {{$list->nombre}}
+                    <div class="border-b-2 border-gray-500">
+                        <div class="m-8 pl-5">
+                            {{-- <i class="fa-regular fa-circle" aria-hidden="true"></i> --}}
+                            <input id="check_1" type="checkbox"/>
+                            <span class="pl-8">{{$list->nombre}}</span>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                    @endforeach
+                    <div id="footer-list" class="flex justify-center mt-5 mb-5 space-x-10 text-xs uppercase">
+                       <div class="basis-2/4">Mostrando {{count($lists)}} elementos</div>
+                       <div><a href="">Marcar todas</a></div>
+                       <div><a href="">Eliminar</a></div>
+                    </div>
+                </div>
         </div>
         @else
         <div class="max-w-screen-lg bg-white mx-auto rounded-lg text-center py-11 mt-4">
