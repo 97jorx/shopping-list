@@ -26,8 +26,13 @@ module.exports = {
             // => @media (min-width: 1536px) { ... }
           },
     },
-    extend: {},
+    extend: {
+        width: {
+          '128': '32rem',
+          '132': '36rem',
+        }
+      }
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 }
 

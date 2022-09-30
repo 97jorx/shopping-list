@@ -30,15 +30,29 @@ class ShoppingListController extends Controller
 
   public function index()
   {
-    $lists = ShoppingList::paginate(6);
+    $lists = ShoppingList::orderBy('created_at', 'DESC')->paginate(4);
+    $keys = ShoppingList::all()->modelKeys();
 
-    return view('lists.index', compact('lists'));
+    return view('lists.index', compact('lists'), compact('keys'));
 
   }
 
   public function create()
   {
     return view('lists.create');
+  }
+
+
+  public function delete(Request $request)
+  {
+
+    $array = $request->input('checkbox');
+    ShoppingList::whereIn('id', $array)->delete();
+
+    return redirect()
+    ->route('lists.index')
+    ->with('success', 'Se ha eliminado correctamente la lista.');
+
   }
 
   public function view($id)

@@ -4,31 +4,39 @@
 
 @section('content')
 
-    <a href="{{ route('lists.create') }}" class="border-2 cursor-pointer rounded-2xl hover:border-lime-500 border-gray-400 font-bold py-4 px-4 rounded ">
-        <i class="text-grey-300  fa fa-plus-circle" aria-hidden="true"></i>
-        <span class='pl-3'>Crear lista</span>
-    </a>
+
+    <div class="flex justify-center ">
+        <form action="{{ route('lists.store') }}" method="POST" >
+            @csrf
+            <i class="absolute ml-5 mt-6 fa fa-plus-circle" aria-hidden="true"></i>
+            <input placeholder="Nombre de la lista..." class="cursor-pointer border-2 lg:w-132 rounded-2xl border-gray-400 font-bold px-12 py-4 rounded"  name='nombre' type="text">
+            <input type="submit" class='hidden' />
+        </form>
+    </div>
 
     @if ($lists->isNotEmpty())
-        <div>
-            <table class="mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-800 overflow-hidden">
-                <thead class="text-white bg-zinc-600">
-                    <tr>
-                        <th class="px-8 py-6 uppercase">
-                            Listas de la compra
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-200">
-                    @foreach ($lists as $list)
-                            <tr>
-                                <td class="px-8 py-6 border border-slate-200">
-                                    {{$list->nombre}}
-                                </td>
-                            </tr>
+        <div class="flex justify-center">
+            <div class="mt-10 border-2 w-132 h-full rounded-2xl border-gray-400 overflow-hidden">
+                <form action="{{ route('lists.delete', $keys) }}" method="POST" >
+                    @csrf
+                    @method('DELETE')
+                    @foreach ($lists as $key => $list)
+                        <div class="hover:bg-gray-200 border-b-2 border-gray-500 cursor">
+                                <label for='checkbox{{$key}}'>
+                                <div class="cursor-pointer flex items-center h-24 pl-5">
+                                    <input id="checkbox{{$key}}" name="checkbox[{{$key}}]" value="{{$list->id}}" type="checkbox" class="h-4 w-4 rounded-full shadow" />
+                                    <span class="font-bold pl-8">{{$list->nombre}}</span>
+                                </div>
+                            </label>
+                        </div>
                     @endforeach
-                </tbody>
-            </table>
+                    <div id="footer-list" class="flex justify-center mt-5 mb-5 space-x-10 text-xs uppercase">
+                        <div class="basis-2/4">Mostrando {{count($lists)}} elementos</div>
+                        <a class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full">Marcar todas</a>
+                        <button type="submit" class="cursor-pointer bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 uppercase rounded-full">Eliminar</button>
+                    </div>
+                </form>
+            </div>
         </div>
         @else
         <div class="max-w-screen-lg bg-white mx-auto rounded-lg text-center py-11 mt-4">
