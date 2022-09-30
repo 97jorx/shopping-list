@@ -17,14 +17,14 @@
     @if ($lists->isNotEmpty())
         <div class="flex justify-center">
             <div class="mt-10 border-2 w-132 h-full rounded-2xl border-gray-400 overflow-hidden">
-                <form action="{{ route('lists.delete', $keys) }}" method="POST" >
+                <form action="{{ route('lists.delete') }}" method="POST" >
                     @csrf
                     @method('DELETE')
                     @foreach ($lists as $key => $list)
                         <div class="hover:bg-gray-200 border-b-2 border-gray-500 cursor">
                                 <label for='checkbox{{$key}}'>
                                 <div class="cursor-pointer flex items-center h-24 pl-5">
-                                    <input id="checkbox{{$key}}" name="checkbox[{{$key}}]" value="{{$list->id}}" type="checkbox" class="h-4 w-4 rounded-full shadow" />
+                                    <input id="checkbox{{$key}}" name="checkbox[]" value="{{$list->id}}" type="checkbox" class="h-4 w-4 rounded-full shadow" />
                                     <span class="font-bold pl-8">{{$list->nombre}}</span>
                                 </div>
                             </label>
@@ -41,7 +41,7 @@
         @else
         <div class="max-w-screen-lg bg-white mx-auto rounded-lg text-center py-11 mt-4">
             <h5 class="text-2xl leading-9 font-bold tracking-tight text-gray-800 sm:text-2xl sm:leading-10">
-                No se han encontrado productos.
+                No se han encontrado listas.
             </h5>
         </div>
         <img class='gif-logo object-cover mx-auto h-48 w-96' src="{{ asset('storage/nothing-logo.gif') }}" alt="nothing">

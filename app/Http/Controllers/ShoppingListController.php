@@ -30,10 +30,9 @@ class ShoppingListController extends Controller
 
   public function index()
   {
-    $lists = ShoppingList::orderBy('created_at', 'DESC')->paginate(4);
-    $keys = ShoppingList::all()->modelKeys();
+    $lists = ShoppingList::orderBy('created_at', 'ASC')->paginate(4);
 
-    return view('lists.index', compact('lists'), compact('keys'));
+    return view('lists.index', compact('lists'));
 
   }
 
@@ -45,13 +44,18 @@ class ShoppingListController extends Controller
 
   public function delete(Request $request)
   {
-
-    $array = $request->input('checkbox');
-    ShoppingList::whereIn('id', $array)->delete();
+    $message = '';
+    if($request->has('checkbox')) {
+        $array = $request->input('checkbox');
+        ShoppingList::whereIn('id', $array)->delete();
+        $message = 'Se ha eliminado correctamente';
+    } else {
+        $message = "Hay que seleccionar una lista.";
+    }
 
     return redirect()
     ->route('lists.index')
-    ->with('success', 'Se ha eliminado correctamente la lista.');
+    ->with('success', $message);
 
   }
 
