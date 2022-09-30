@@ -31,14 +31,26 @@ class ShoppingListController extends Controller
   public function index()
   {
     $lists = ShoppingList::orderBy('created_at', 'DESC')->paginate(4);
+    $keys = ShoppingList::all()->modelKeys();
 
-    return view('lists.index', compact('lists'));
+    return view('lists.index', compact('lists'), compact('keys'));
 
   }
 
   public function create()
   {
     return view('lists.create');
+  }
+
+
+  public function delete(ShoppingList $list)
+  {
+    $list->delete();
+
+    return redirect()
+    ->route('lists.index')
+    ->with('success', 'Se ha eliminado correctamente la lista.');
+
   }
 
   public function view($id)

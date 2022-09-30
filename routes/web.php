@@ -49,6 +49,8 @@ Route::controller(ShoppingListController::class)->group(function() {
     Route::get('lists/create', 'create')->name('lists.create');
     Route::post('lists', 'store')->name('lists.store');
 
+    // BORRADO DE LA LISTA
+    Route::delete('lists/{list}', 'delete')->name('lists.delete');
 
 });
 
