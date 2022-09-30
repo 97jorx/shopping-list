@@ -24,7 +24,7 @@
                         <div class="hover:bg-gray-200 border-b-2 border-gray-500 cursor">
                                 <label for='checkbox{{$key}}'>
                                 <div class="cursor-pointer flex items-center h-24 pl-5">
-                                    <input id="checkbox{{$key}}" name="checkbox{{$key}}" type="checkbox" class="h-4 w-4 rounded-full shadow" />
+                                    <input id="checkbox{{$key}}" name="checkbox[{{$key}}]" value="{{$list->id}}" type="checkbox" class="h-4 w-4 rounded-full shadow" />
                                     <span class="font-bold pl-8">{{$list->nombre}}</span>
                                 </div>
                             </label>

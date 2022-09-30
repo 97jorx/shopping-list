@@ -43,9 +43,11 @@ class ShoppingListController extends Controller
   }
 
 
-  public function delete(ShoppingList $list)
+  public function delete(Request $request)
   {
-    $list->delete();
+
+    $array = $request->input('checkbox');
+    ShoppingList::whereIn('id', $array)->delete();
 
     return redirect()
     ->route('lists.index')
