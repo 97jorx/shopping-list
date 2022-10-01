@@ -22,18 +22,21 @@
                     @method('DELETE')
                     @foreach ($lists as $key => $list)
                         <div class="hover:bg-gray-200 border-b-2 border-gray-500 cursor">
-                                <label for='checkbox{{$key}}'>
-                                <div class="cursor-pointer flex items-center h-24 pl-5">
-                                    <input id="checkbox{{$key}}" name="checkbox[]" value="{{$list->id}}" type="checkbox" class="h-4 w-4 rounded-full shadow" />
-                                    <span class="font-bold pl-8">{{$list->nombre}}</span>
+                                <div class="cursor-pointer flex items-center  h-24 pl-5">
+                                    <input class="h-4 w-4 rounded-full shadow" id="checkbox{{$key}}" name="checkbox[]" value="{{$list->id}}" type="checkbox"/>
+                                    <span class="basis-4/5 font-bold pl-8">{{$list->nombre}}</span>
+                                    <a class="cursor-pointer bg-blue-400 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full">
+                                        <i class="fa fa-wrench" aria-hidden="true"></i>
+                                    </a>
                                 </div>
-                            </label>
                         </div>
                     @endforeach
                     <div id="footer-list" class="flex justify-center mt-5 mb-5 space-x-10 text-xs uppercase">
-                        <div class="basis-2/4">Mostrando {{count($lists)}} elementos</div>
-                        <a class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full">Marcar todas</a>
-                        <button type="submit" class="cursor-pointer bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 uppercase rounded-full">Eliminar</button>
+                        <div class="basis-2/4">
+                            <button class="cursor-pointer bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 uppercase rounded-full" type="submit" >Eliminar</button>
+                            <a class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full">Marcar todas</a>
+                        </div>
+                        <div>Mostrando {{count($lists)}} elementos</div>
                     </div>
                 </form>
             </div>
