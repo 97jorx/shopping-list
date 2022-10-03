@@ -25,13 +25,13 @@
                                 <div class="cursor-pointer flex items-center  h-24 pl-5">
                                     <input class="h-4 w-4 rounded-full shadow" id="checkbox{{$key}}" name="checkbox[]" value="{{$list->id}}" type="checkbox"/>
                                     <span class="basis-4/5 font-bold pl-8">{{$list->nombre}}</span>
-                                    <a class="cursor-pointer bg-blue-400 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full">
+                                    <a class="cursor-pointer bg-blue-400 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" type="button" data-modal-toggle="extralarge-modal">
                                         <i class="fa fa-wrench" aria-hidden="true"></i>
                                     </a>
                                 </div>
                         </div>
                     @endforeach
-                    <div id="footer-list" class="flex justify-center mt-5 mb-5 space-x-10 text-xs uppercase">
+                    <div id="footer-list" class="flex justify-center mt-5 mb-5 space-x-10 uppercase">
                         <div class="basis-2/4">
                             <button class="cursor-pointer bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 uppercase rounded-full" type="submit" >Eliminar</button>
                             <a class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full">Marcar todas</a>
@@ -53,6 +53,9 @@
         <div class='flex flex-wrap justify-center mt-14'>
             {{$lists->links()}}
         </div>
+
+        @include('modals/modal');
+
 
 
 @endsection

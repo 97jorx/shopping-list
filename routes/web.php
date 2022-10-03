@@ -44,6 +44,9 @@ Route::controller(ShoppingListController::class)->group(function() {
 
     // TODAS LAS LISTAS
     Route::get('lists/index', 'index')->name('lists.index');
+    Route::get('view-component/{name}', function ($name) {
+        return view($name);
+    });
 
     // CREACIÓN DE LA LISTA
     Route::get('lists/create', 'create')->name('lists.create');
@@ -51,6 +54,8 @@ Route::controller(ShoppingListController::class)->group(function() {
 
     // BORRADO DE LA LISTA
     Route::delete('lists', 'delete')->name('lists.delete');
+
+
 
 });
 
