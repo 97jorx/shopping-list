@@ -77,12 +77,13 @@ class ProductController extends Controller
   }
 
 
-  public function search($search){
+  public function search(Request $request){
     $productos = Product::all();
 
-    // if($request->keyword != '') {
-        $productos = Product::where('nombre','LIKE','%'.$search.'%')->get();
-    // }
+    if($request->search != '') {
+        $productos = Product::select('id', 'nombre')
+        ->where('nombre', 'LIKE', '%'.$request->search.'%')->limit(5)->get();
+    }
 
     return response()->json([
         'productos' => $productos
