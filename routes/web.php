@@ -38,6 +38,10 @@ Route::controller(ProductController::class)->group(function() {
     // DETALLES DEL PRODUCTO
     Route::get('products/show/{product}', 'show')->name('products.show');
 
+    //SEARCH DEL PRODUCTO
+    Route::post('/product/search', 'search')->name('product.search');
+
+
 });
 
 Route::controller(ShoppingListController::class)->group(function() {

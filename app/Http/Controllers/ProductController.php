@@ -76,4 +76,20 @@ class ProductController extends Controller
     return view('products.show', compact('product'));
   }
 
+
+  public function search(Request $request){
+    $productos = Product::all();
+
+    if($request->search != '') {
+        $productos = Product::select('id', 'nombre')
+        ->where('nombre', 'LIKE', '%'.$request->search.'%')->limit(5)->get();
+    }
+
+    return response()->json([
+        'productos' => $productos
+    ]);
+
+  }
+
+
 }
