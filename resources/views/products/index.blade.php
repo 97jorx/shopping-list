@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="product-buttons mb-12 mx-6 flex justify-center sm:justify-center md:justify-center lg:justify-start inline-flex items-center">
+    <div class="product-buttons mb-12 mx-6 flex justify-center">
 
         <a href="{{ route('products.create') }}" class="border-2 cursor-pointer rounded-2xl hover:border-lime-500 border-gray-400 font-bold py-4 px-4 rounded ">
             <i class="text-grey-300  fa fa-plus-circle" aria-hidden="true"></i>
@@ -16,7 +16,7 @@
     @if ($products->isNotEmpty())
         <div class="products-box grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-3 lg:gap-3 md:gap-5">
             @foreach ($products as $product)
-                <div class='text-grey-300 lg:h-36 lg:w-full md:w-72 sm:w-full mx-6 font-bold text-center shadow-xl border-2 rounded-2xl'>
+                <div class='text-grey-300  h-36 lg:h-36 lg:w-full md:w-72 sm:w-full mx-6 font-bold text-center shadow-xl border-gray-400 border-2 rounded-2xl'>
                     <div class="flex justify-end px-4 pt-2">
                         <button id="dropdownButton" data-dropdown-toggle="dropdown" class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
                             <span class="sr-only"></span>
@@ -54,7 +54,7 @@
         <img class='gif-logo mx-auto object-cover h-48 w-96' src="{{ asset('storage/nothing-logo.gif') }}" alt="nothing">
     @endif
 
-    <div class='flex flex-wrap justify-center mt-14'>
+    <div class='flex flex-wrap justify-center m-14'>
         {{$products->links()}}
     </div>
 

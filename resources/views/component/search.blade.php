@@ -31,7 +31,7 @@
                             $("#wrapper-search-box").append(`
                                 <div id="search-box" 
                                     class="z-0 overflow-y-auto bg-gray-50 
-                                    block h-32 w-80 pl-10 p-2.5">
+                                    block h-32 w-full pl-10 p-2.5">
                                 </div>`
                             );
                         } 
@@ -39,8 +39,7 @@
                         $.each( data.productos, function( key, value ) {
                             $("#search-box").append(`
                                 <a href="#" aria-current="true" 
-                                    class="block py-2 px-4 w-full rounded-t-lg border-b border-gray-200 
-                                    cursor-pointer dark:bg-gray-800 dark:border-gray-600">
+                                    class="block py-2 px-4 w-full cursor-pointer">
                                     ${value.nombre}
                                 </a>`
                             );
