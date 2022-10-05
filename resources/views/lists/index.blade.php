@@ -54,7 +54,7 @@
             {{$lists->links()}}
         </div>
 
-        @include('modals/modal');
+        @include('modals/modal')
 
 
 

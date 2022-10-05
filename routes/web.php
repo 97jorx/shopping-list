@@ -39,7 +39,7 @@ Route::controller(ProductController::class)->group(function() {
     Route::get('products/show/{product}', 'show')->name('products.show');
 
     //SEARCH DEL PRODUCTO
-    Route::get('/product/search/{search}', 'search')->name('product.search');
+    Route::post('/product/search', 'search')->name('product.search');
 
 
 });
