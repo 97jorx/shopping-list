@@ -32,9 +32,9 @@
                         </div>
                     @endforeach
                     <div id="footer-list" class="flex justify-center mt-5 mb-5 space-x-10 uppercase">
-                        <div class="basis-2/4">
-                            <button class="cursor-pointer bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 uppercase rounded-full" type="submit" >Eliminar</button>
-                            <a class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full">Marcar todas</a>
+                        <div class="basis-2/4 text-xs lg:text-xl md:text-sm sm:text-sm break-normal whitespace-nowrap ">
+                            <button class=" text-xs lg:text-xl md:text-sm sm:text-sm cursor-pointer bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 uppercase rounded-full" type="submit" >Eliminar</button>
+                            <a class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full break-normal">Marcar todas</a>
                         </div>
                         <div>Mostrando {{count($lists)}} elementos</div>
                     </div>
@@ -55,8 +55,6 @@
         </div>
 
         @include('modals/modal')
-
-
 
 @endsection
 

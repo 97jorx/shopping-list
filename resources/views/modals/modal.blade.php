@@ -1,9 +1,9 @@
-<!-- Extra Large Modal -->
+
+
+
 <div id="extralarge-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
     <div class="relative p-4 w-full max-w-7xl h-full md:h-auto">
-        <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
             <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
                 <h3 class="text-xl font-medium text-gray-900 dark:text-white">
                     Modificar lista
@@ -13,11 +13,9 @@
                     <span class="sr-only">Close modal</span>
                 </button>
             </div>
-            <!-- Modal body -->
             <div class="p-6 space-y-6">
-<!-- This is an example component -->
-<div class="max-w-2xl mx-auto">
 
+<div class="max-w-2xl mx-auto">
 	<div class="relative overflow-x-auto xl:overflow-x-hidden lg:overflow-x-hidden shadow-md sm:rounded-lg">
 		<div class="p-4">
 			<label for="table-search" class="sr-only">Search</label>
@@ -30,7 +28,7 @@
 							clip-rule="evenodd"></path>
 					</svg>
 				</div>
-				<form action="{{ route('product.search') }}" method="POST" >
+				<form id="search-product" action="{{ route('product.search') }}" method="POST" >
 				 @csrf
 				 <input name="search" type="text" id="product-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar producto...">
 				 <input type="submit" class="hidden">
@@ -148,3 +146,5 @@
         </div>
     </div>
 </div>
+
+
