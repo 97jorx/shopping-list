@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Uuids;
+use App\Models\ProductList;
 use App\Models\ShoppingList;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreShoppingList;
@@ -31,8 +32,9 @@ class ShoppingListController extends Controller
   public function index()
   {
     $lists = ShoppingList::orderBy('created_at', 'ASC')->paginate(4);
+    $items = ProductList::listProductsAll();
 
-    return view('lists.index', compact('lists'));
+    return view('lists.index', compact('lists', 'items'), );
 
   }
 
