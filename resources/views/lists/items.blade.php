@@ -1,5 +1,4 @@
 
-    
 <table class="z-10 w-full text-sm text-left text-gray-500 ">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
         <tr>
@@ -8,6 +7,9 @@
             </th>
             <th scope="col" class="px-6 py-3">
                 Categoría
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Acciones
             </th>
         </tr>
     </thead>

@@ -20,7 +20,7 @@ class ProductList extends Model
             ->join('products', 'product_list.product_id', '=', 'products.id')
             ->join('shopping_lists', 'product_list.list_id', '=', 'shopping_lists.id')
             ->select('products.nombre', 'products.categoria')
-            ->paginate(4);
+            ->get();
 
         return $product_list;
     }

@@ -82,7 +82,7 @@ class ProductController extends Controller
 
     if($request->search != '') {
         $productos = Product::select('id', 'nombre')
-        ->where('nombre', 'LIKE', '%'.$request->search.'%')->get();
+        ->where('nombre', 'LIKE', '%'.$request->search.'%')->limit(10)->get();
     }
 
     return response()->json([
