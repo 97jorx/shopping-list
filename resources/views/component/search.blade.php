@@ -10,18 +10,19 @@
 
 
         // AL HACER SUBMIT SE RECOGE EL JSON A PARTIR DE UN AJAX
-        $("#search-product").submit(function(e) {
+        $("#input-search-product").on("input", function(e) {
 
             e.preventDefault();
 
-            var form = $(this);
-            var actionUrl = form.attr('action');
             var input = $('#input-search-product');
 
             $.ajax({
                 type: "POST",
-                url: actionUrl,
-                data: form.serialize(), 
+                url: "/product/search",
+                data: {'search': input.val()}, 
+                beforeSend: function () {
+                    $('#loader').removeClass('hidden')
+                },
                 success: function(data) {
                     if(!input.val().length == 0) {
                         
@@ -30,8 +31,8 @@
                         if(!$("#search-box").length) {
                             $("#wrapper-search-box").append(`
                                 <div id="search-box" 
-                                    class="z-0 overflow-y-auto bg-gray-50 
-                                    block h-32 w-full pl-10 p-2.5">
+                                    class="absolute shadow-2xl rounded-lg overflow-y-auto bg-gray-50 
+                                    block w-full h-32 ">
                                 </div>`
                             );
                         } 
@@ -39,7 +40,7 @@
                         $.each( data.productos, function( key, value ) {
                             $("#search-box").append(`
                                 <a href="#" aria-current="true" 
-                                    class="block py-2 px-4 w-full cursor-pointer">
+                                    class="relative z-0 block py-2 px-4 cursor-pointer">
                                     ${value.nombre}
                                 </a>`
                             );
@@ -49,6 +50,7 @@
                         $('#search-box').remove();
                     }
                 }
+                
             });
 
         });
