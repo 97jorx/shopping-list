@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShoppingListController;
+use App\Models\ProductList;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,9 +49,6 @@ Route::controller(ShoppingListController::class)->group(function() {
 
     // TODAS LAS LISTAS
     Route::get('lists/index', 'index')->name('lists.index');
-    Route::get('view-component/{name}', function ($name) {
-        return view($name);
-    });
 
     // CREACIÓN DE LA LISTA
     Route::get('lists/create', 'create')->name('lists.create');
@@ -59,6 +57,13 @@ Route::controller(ShoppingListController::class)->group(function() {
     // BORRADO DE LA LISTA
     Route::delete('lists', 'delete')->name('lists.delete');
 
+
+});
+
+Route::controller(ProductListController::class)->group(function() {
+
+    // BORRADO DE LA LISTA
+    Route::post('productlist', 'additem')->name('productlist.additem');
 
 
 });

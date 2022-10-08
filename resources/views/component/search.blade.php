@@ -10,13 +10,11 @@
 
 
         // AL HACER SUBMIT SE RECOGE EL JSON A PARTIR DE UN AJAX
-        $("#input-search-product").on("input", function(e) {
+        $("#input-search-product").on("change", function(e) {
 
             e.preventDefault();
 
             var input = $('#input-search-product');
-
-            setTimeout(function() {
                 $.ajax({
                     type: "POST",
                     url: "/product/search",
@@ -54,10 +52,6 @@
                         }
                     }
                 });
-            }, 1000);
-
-          
-
         });
 
         
