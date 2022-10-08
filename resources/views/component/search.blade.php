@@ -25,7 +25,7 @@
                         $('#loader').removeClass('hidden')
                     },
                     success: function(data) {
-                        if(!input.val().length == 0) {
+                        if(input.val().length >= 3) {
                             
                             $('#search-box').remove();
 
