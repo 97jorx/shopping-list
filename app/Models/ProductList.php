@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ProductList extends Model
 {
+    protected $table = 'product_list';
     public $incrementing = false;
-
     use HasFactory;
 
 
