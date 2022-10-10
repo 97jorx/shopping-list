@@ -14,7 +14,7 @@ class ProductListController extends Controller
     public function additem(Request $request)
     {
   
-      if(count($request->all) <= 0 
+      if($request->has('list') && $request->has('product')
       && ShoppingList::where('id', $request->list)->exists() 
       && Product::where('id', $request->product)->exists()) {
             return response()->json(false);      

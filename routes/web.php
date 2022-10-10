@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShoppingListController;
-use App\Models\ProductList;
+use App\Http\Controllers\ProductListController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,7 +63,7 @@ Route::controller(ShoppingListController::class)->group(function() {
 Route::controller(ProductListController::class)->group(function() {
 
     // BORRADO DE LA LISTA
-    Route::post('productlist', 'additem')->name('productlist.additem');
+    Route::post('productlist/additem', 'additem')->name('productlist.additem');
 
 
 });

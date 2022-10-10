@@ -38,9 +38,8 @@
 
                             $.each( data.productos, function( key, value ) {
                                 $("#search-box").append(`
-                                
-                                    <a href="#" aria-current="true" 
-                                        class="hover:text-lime-500 relative z-0 block py-2 px-4 cursor-pointer">
+                                    <a aria-current="true" 
+                                        class="additem-searched hover:text-lime-500 relative z-0 block py-2 px-4 cursor-pointer">
                                         <i class="fa fa-plus-circle hover:text-lime-300" aria-hidden="true"></i>
                                         ${value.nombre}
                                     </a>`
