@@ -14,17 +14,13 @@
 
     </head>
     <body>
-
         {{-- NAV INCLUDE --}}
         @include('layout.navigation')
-        @include('component.search')
-
         {{-- CONTENT --}}
         <div class="container mx-auto">
             @yield('content')
         </div>
-
         @yield('searchjs')
-
+        @yield('modalshow')
     </body>
 </html>

@@ -38,6 +38,8 @@
 					</div>
 				</div>
 			@include('lists.items', $items)
+        	@include('component.search')
+        	@include('component.modalshow')
 		</div>
 		</div>
             </div>

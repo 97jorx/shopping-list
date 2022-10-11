@@ -16,15 +16,14 @@
                     type: "POST",
                     url: "/productlist/additem",
                     data: { 
-                        'list': '161',
-                        'product': 'f9a1c79d-3b4c-11ed-9902-2cf05d745024'
+                        'list': list.val(),
+                        'product': product.val()
                     }, 
                     success: function(data) {
                         console.log(data);
                     }
                 });
         });
-
         
     </script>
 @endsection

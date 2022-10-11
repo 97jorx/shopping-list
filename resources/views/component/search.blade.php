@@ -8,7 +8,6 @@
             }
         });
 
-
         // AL HACER SUBMIT SE RECOGE EL JSON A PARTIR DE UN AJAX
         $("#input-search-product").on("change", function(e) {
 
