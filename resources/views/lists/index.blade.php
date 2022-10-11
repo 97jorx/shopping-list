@@ -20,9 +20,8 @@
                                 <div class="cursor-pointer flex items-center h-24 pl-5">
                                     <input class="h-4 w-4 rounded-full shadow" id="checkbox{{$key}}" name="checkbox[]" value="{{$list->id}}" type="checkbox"/>
                                     <span class="basis-4/5 font-bold pl-8">{{$list->nombre}}</span>
-                                    <a class="cursor-pointer bg-blue-400 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full"
+                                    <a class="button-modal cursor-pointer bg-blue-400 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full"
                                          type="button" 
-                                         id="button-modal"
                                          data-modal-toggle="extralarge-modal"
                                          data-id="{{ $list->id }}"
                                          data-attr="{{ route('productlist.edit', $list->id) }}"

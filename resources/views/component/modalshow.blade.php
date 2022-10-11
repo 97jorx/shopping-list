@@ -7,7 +7,7 @@
             }
         });
 
-        $("#button-modal").on("click", function(e) {
+        $(".button-modal").on("click", function(e) {
 
             let url = $(this).attr('data-attr');
 
