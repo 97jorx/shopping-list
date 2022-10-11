@@ -10,17 +10,16 @@
         $("#button-modal").on("click", function(e) {
 
             let url = $(this).attr('data-attr');
-            let id = $(this).attr('data-id');
 
             e.preventDefault();
             $.ajax({
                 type: "POST",
                 url: url,
-                data: {'id': id}, 
                 success: function(data) {
                     console.log(data);
                 }
             });
+
         });
 
         
