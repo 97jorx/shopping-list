@@ -25,7 +25,7 @@
                                          id="button-modal"
                                          data-modal-toggle="extralarge-modal"
                                          data-id="{{ $list->id }}"
-                                         {{-- data-attr="{{ route('productlist.edit', $productlist->id) }}" --}}
+                                         data-attr="{{ route('productlist.edit', $list->id) }}"
                                     >
                                     <i class="fa fa-wrench" aria-hidden="true"></i>
                                     </a>

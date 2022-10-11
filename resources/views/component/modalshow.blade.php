@@ -1,13 +1,28 @@
 @section('modalshow')
     <script>
-        $(document).on('click', '#button-modal', function(e){
-            e.preventDefault();
-            var button = $(this);
-            var id = button.data('id');
-
-            console.log(id);
-
-            $('#extralarge-modal').modal('show');
+        
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
-</script>
+
+        $("#button-modal").on("click", function(e) {
+
+            let url = $(this).attr('data-attr');
+            let id = $(this).attr('data-id');
+
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {'id': id}, 
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+
+        
+    </script>
 @endsection

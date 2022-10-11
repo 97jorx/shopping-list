@@ -14,11 +14,12 @@ class ProductList extends Model
 
 
 
-    public static function listProductsAll() {
+    public static function listProductsAll($list_id) {
  
         $product_list = DB::table('product_list')
             ->join('products', 'product_list.product_id', '=', 'products.id')
             ->join('shopping_lists', 'product_list.list_id', '=', 'shopping_lists.id')
+            ->where('shopping_lists.id', $list_id)
             ->select('products.nombre', 'products.categoria')
             ->get();
 

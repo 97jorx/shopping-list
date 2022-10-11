@@ -31,4 +31,15 @@ class ProductListController extends Controller
       return response()->json(true);
      
     }
+
+
+    public function edit($list_id)
+    {
+
+      $items = ProductList::listProductsAll($list_id);
+      return response()->json($items);
+      
+    }
+      
+  
 }
