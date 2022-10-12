@@ -9,11 +9,6 @@
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="flex flex-col md:flex-row md:space-x-8 md:space-y-0 sm:space-y-2 space-y-3  md:text-sm md:font-medium md:border-0">
         <li>
-          <a href="{{ route('home') }}" class="{{ Route::is('home') ? 'bg-zinc-600' : '' }} text-white lg:inline-flex lg:w-auto px-3 py-2 ml-4 rounded hover:bg-gray-800">
-              <i class="fa fa-home pr-2 text-xl  "></i><span class='text-xl'>INICIO</span>
-          </a>
-        </li>
-        <li>
           <a href="{{ route('products.index') }}" class="{{ Route::is('products.index') ? 'bg-zinc-600' : '' }} text-white lg:inline-flex lg:w-auto px-3 py-2 ml-4 rounded hover:bg-gray-800">
               <i class="fa fa-box pr-2 text-xl  "></i><span class='text-xl'>PRODUCTOS</span>
           </a>
