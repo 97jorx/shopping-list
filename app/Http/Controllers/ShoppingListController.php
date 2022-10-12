@@ -63,8 +63,8 @@ class ShoppingListController extends Controller
 
   public function view($id)
   {
-    $list = ShoppingList::findOrFail($id);
-    return view('list.view', compact('list'));
+    $lists = ShoppingList::findOrFail($id);
+    return view('lists.view', compact('lists'));
   }
 
 }

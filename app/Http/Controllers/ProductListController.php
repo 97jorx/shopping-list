@@ -35,9 +35,27 @@ class ProductListController extends Controller
 
     public function edit($list_id)
     {
-
+      $data = '';
       $items = ProductList::listProductsAll($list_id);
-      return response()->json($items);
+        foreach($items as $item) {
+              $data .= '
+              <tr class="bg-white border-b ">
+                  <th scope="row" class="px-6 py-4 font-medium text-gray-900  whitespace-nowrap">
+                      '.$item->nombre.'
+                  </th>
+                  <td class="px-6 py-4">
+                      '.$item->categoria.'
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                      <a href="#" class="font-medium text-blue-600  hover:underline">Eliminar</a>
+                  </td>
+               </tr>
+              ';
+        }
+
+      $data = ['data' => $data];
+
+      return response()->json($data);
       
     }
       

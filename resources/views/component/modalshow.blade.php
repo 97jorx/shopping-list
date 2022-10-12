@@ -10,13 +10,12 @@
         $(".button-modal").on("click", function(e) {
 
             let url = $(this).attr('data-attr');
-
             e.preventDefault();
             $.ajax({
                 type: "POST",
                 url: url,
                 success: function(data) {
-                    console.log(data);
+                    $('tbody').html(data.data);
                 }
             });
 

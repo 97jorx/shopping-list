@@ -53,6 +53,9 @@ Route::controller(ShoppingListController::class)->group(function() {
     // CREACIÓN DE LA LISTA
     Route::get('lists/create', 'create')->name('lists.create');
     Route::post('lists', 'store')->name('lists.store');
+    
+    // VISTA DE LA LISTA
+    Route::get('lists/view/{id}', 'view')->name('lists.view');
 
     // BORRADO DE LA LISTA
     Route::delete('lists', 'delete')->name('lists.delete');
