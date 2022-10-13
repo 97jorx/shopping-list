@@ -1,6 +1,7 @@
 @section('searchjs')
     <script>
-        
+    $(document).ready(function() {
+
         // TOKEN CSRF DE LA ETIQUETA META
         $.ajaxSetup({
             headers: {
@@ -34,11 +35,11 @@
 
                             $.each( data.productos, function( key, value ) {
                                 $("#search-box").append(`
-                                    <a aria-current="true" 
+                                    <button onClick="additem(event)" id="${value.id}" aria-current="true" 
                                         class="additem-searched hover:text-lime-500 relative z-0 block py-2 px-4 cursor-pointer">
                                         <i class="fa fa-plus-circle hover:text-lime-300" aria-hidden="true"></i>
                                         ${value.nombre}
-                                    </a>`
+                                    </button>`
                                 );
                             });
 
@@ -49,6 +50,7 @@
                 });
         });
 
+    });
         
     </script>
 @endsection

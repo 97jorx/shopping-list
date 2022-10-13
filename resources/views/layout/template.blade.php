@@ -20,6 +20,7 @@
         <div class="container mx-auto">
             @yield('content')
         </div>
+        @yield('additem')
         @yield('searchjs')
         @yield('modalshow')
     </body>

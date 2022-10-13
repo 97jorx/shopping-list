@@ -54,6 +54,7 @@
 						</tbody>
 					</table>
 					@include('component.modalshow')
+					@include('component.additem')
 					@include('component.search')
 			</div>
 		</div>
