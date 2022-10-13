@@ -37,23 +37,27 @@ class ProductListController extends Controller
     {
       $data = '';
       $items = ProductList::listProductsAll($list_id);
+      $count = $items->count();
+      
         foreach($items as $item) {
               $data .= '
-              <tr class="bg-white border-b ">
-                  <th scope="row" class="px-6 py-4 font-medium text-gray-900  whitespace-nowrap">
-                      '.$item->nombre.'
-                  </th>
-                  <td class="px-6 py-4">
-                      '.$item->categoria.'
-                  </td>
-                  <td class="px-6 py-4 text-right">
-                      <a href="#" class="font-medium text-blue-600  hover:underline">Eliminar</a>
-                  </td>
-               </tr>
-              ';
+                <tr class="hidden bg-white border-b list-'.$item->list_id.' ">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900  whitespace-nowrap">
+                        '.$item->nombre.'
+                    </th>
+                    <td class="px-6 py-4">
+                        '.$item->categoria.'
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600  hover:underline">Eliminar</a>
+                    </td>
+                </tr>
+               ';
         }
 
-      $data = ['data' => $data];
+      $data = [
+        'data' => $count > 0 ? $data : false,
+      ];
 
       return response()->json($data);
       
