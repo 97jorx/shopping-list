@@ -7,10 +7,15 @@
             }
         });
 
+
+
+        $('#spinner').show();
+        
         $(".button-modal").on("click", function(e) {
 
             let url = $(this).attr('data-attr');
             let id = $(this).attr('data-id');
+
             e.preventDefault();
 
                 $.ajax({
@@ -21,12 +26,22 @@
                         $('.list-'+id).animate( { "opacity": "show", top: "100"} , 300 );
                     },
                     complete: function(data) {
+
                         $('#spinner').hide();
+
                     }
                 });
+        })
 
-        });
+        $(".close-modal").on("click", function(e) {
 
-        
+            let id = $(this).attr('data-id');
+            e.preventDefault();
+            $('#body-items tr').remove();
+            
+        })
+
+
+            
     </script>
 @endsection

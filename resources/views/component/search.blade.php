@@ -18,12 +18,9 @@
                     type: "POST",
                     url: "/product/search",
                     data: {'search': input.val()}, 
-                    beforeSend: function () {
-                        $('#loader').removeClass('hidden')
-                    },
                     success: function(data) {
                         if(input.val().length >= 3) {
-                            
+
                             $('#search-box').remove();
 
                             if(!$("#search-box").length) {
