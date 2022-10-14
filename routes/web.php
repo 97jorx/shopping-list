@@ -67,7 +67,7 @@ Route::controller(ProductListController::class)->group(function() {
 
     // BORRADO DE LA LISTA
     Route::post('productlist/additem', 'additem')->name('productlist.additem');
-    Route::post('productlist/edit/{id}', 'edit')->name('productlist.edit');
+    Route::post('productlist/edit', 'edit')->name('productlist.edit');
 
 
 });

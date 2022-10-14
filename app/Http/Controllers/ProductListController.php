@@ -33,10 +33,16 @@ class ProductListController extends Controller
     }
 
 
-    public function edit($list_id)
+    public function edit(Request $request)
     {
+
+      if(!$request->has('id') && !ShoppingList::where('id', $request->id)->exists()) {
+            return response()->json(false);      
+        } 
+
+
       $data = '';
-      $items = ProductList::listProductsAll($list_id);
+      $items = ProductList::listProductsAll($request->id);
       $count = $items->count();
       
         foreach($items as $item) {
