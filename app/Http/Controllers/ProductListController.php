@@ -43,10 +43,10 @@ class ProductListController extends Controller
       } 
 
 
-      $data = '';
       $items = ProductList::listProductsAll($request->id);
       $count = $items->count();
-      
+      $data = '<input class="hidden" id="list-id" value="'.$request->id.'" />';
+
         foreach($items as $item) {
               $data .= '
                 <tr class="hidden bg-white border-b list-'.$item->list_id.' ">
@@ -64,7 +64,9 @@ class ProductListController extends Controller
         }
 
       $data = [
-        'data' => $count > 0 ? $data : false,
+        'data' => $count > 0 ?
+          $data :
+          $data .= '<td class="px-6 py-4">No se ha encontrado ningún elemento.</td>',
       ];
 
       return response()->json($data);
