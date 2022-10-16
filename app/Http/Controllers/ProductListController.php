@@ -49,15 +49,15 @@ class ProductListController extends Controller
 
         foreach($items as $item) {
               $data .= '
-                <tr class="hidden bg-white border-b list-'.$item->list_id.' ">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900  whitespace-nowrap">
+                <tr class="hidden bg-white list-'.$item->list_id.' ">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         '.$item->nombre.'
                     </th>
                     <td class="px-6 py-4">
                         '.$item->categoria.'
                     </td>
-                    <td class="px-6 py-4 text-right">
-                        <a href="#" class="font-medium text-blue-600  hover:underline">Eliminar</a>
+                    <td class="px-6 py-4">
+                        <a href="#" class="font-medium text-blue-600">Eliminar</a>
                     </td>
                 </tr>
                ';
