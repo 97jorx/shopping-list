@@ -21,6 +21,7 @@ class ProductList extends Model
             ->join('shopping_lists', 'product_list.list_id', '=', 'shopping_lists.id')
             ->where('shopping_lists.id', $list_id)
             ->select('products.nombre', 'products.categoria', 'product_list.list_id', 'product_list.product_id')
+            ->orderBy('product_list.created_at', 'DESC')
             ->get();
 
         return $product_list;
