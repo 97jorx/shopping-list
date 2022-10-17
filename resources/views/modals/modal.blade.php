@@ -13,7 +13,7 @@
             <div class="p-6 space-y-6">
 
 			<div class="max-w-2xl mx-auto">
-				<div class="relative overflow-x-auto xl:overflow-x-hidden lg:overflow-x-hidden shadow-2xl sm:rounded-lg">
+				<div class="scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-300 h-72 overflow-y-scroll block relative xl:overflow-x-hidden lg:overflow-x-hidden sm:rounded-lg">
 					<div class="p-4">
 						<label for="table-search" class="sr-only">Search</label>
 						<div class="relative m-5">
@@ -29,8 +29,7 @@
 						</div>
 						<div id="wrapper-search-box" class=" shadow-lg w-full relative z-10"></div>
 					</div>
-					<div class="flex justify-center w-full">
-						<table id="table-list" class="h-36 overflow-y-scroll block text-sm text-left text-gray-500 ">
+						<table id="table-list" class="text-sm text-left w-full text-gray-500 ">
 							<thead class="sticky top-0 backdrop-blur-sm bg-white/20 text-xs text-gray uppercase">
 									<tr>
 										<th scope="col" class="px-6 py-3">
@@ -54,7 +53,6 @@
 								</div>
 							</tbody>
 						</table>
-					</div>
 					@include('component.modalshow')
 					@include('component.additem')
 					@include('component.search')
