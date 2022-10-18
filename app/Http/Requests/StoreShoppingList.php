@@ -24,7 +24,7 @@ class StoreShoppingList extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|unique:products',
+            'nombre' => 'required|unique:shopping_lists',
             'descripcion' => 'max:255',
 
         ];
