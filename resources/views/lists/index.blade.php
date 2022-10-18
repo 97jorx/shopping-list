@@ -34,7 +34,7 @@
                     <div id="footer-list" class="flex justify-center mt-5 mb-5 px-5 space-x-10 uppercase">
                         <div class="basis-2/4 text-xs break-normal whitespace-nowrap ">
                             <button class="cursor-pointer bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 uppercase rounded-full" type="submit" >Eliminar</button>
-                            <a class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full break-normal">Marcar todas</a>
+                            <a class="check-all cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full break-normal">Marcar todas</a>
                         </div>
                         <div>Mostrando {{count($lists)}} elementos</div>
                     </div>
@@ -53,5 +53,14 @@
             {{$lists->links()}}
         </div>
         @include('modals/modal')
+
+<script>
+
+    $('.check-all').on('click', function(e)  {
+        allcheckbox = $('input[type=checkbox]').prop('checked', true);
+    });
+
+</script>   
+
 @endsection
 
