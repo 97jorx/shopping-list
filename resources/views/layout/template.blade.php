@@ -11,10 +11,11 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('storage/favicon.ico') }}">
         <script src="{{ asset('js/ajax.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite('resources/css/app.css')
 
     </head>
     <body>
+
         {{-- NAV INCLUDE --}}
         @include('layout.navigation')
         {{-- CONTENT --}}
@@ -24,5 +25,7 @@
         @yield('additem')
         @yield('searchjs')
         @yield('modalshow')
+        @vite('resources/js/app.js')
+
     </body>
 </html>

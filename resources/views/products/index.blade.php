@@ -54,8 +54,13 @@
         <img class='gif-logo mx-auto object-cover h-48 w-96' src="{{ asset('storage/nothing-logo.gif') }}" alt="nothing">
     @endif
 
-    <div class='flex flex-wrap justify-center m-14'>
+    {{-- <div class='flex flex-wrap justify-center m-14'>
         {{$products->links()}}
+    </div> --}}
+
+    <div id="app">
+        <pagination></pagination>
     </div>
+
 
 @endsection

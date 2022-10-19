@@ -54,13 +54,14 @@
         </div>
         @include('modals/modal')
 
-<script>
+        <script>
 
-    $('.check-all').on('click', function(e)  {
-        allcheckbox = $('input[type=checkbox]').prop('checked', true);
-    });
+            $('.check-all').on('click', function(e)  {
+                e.preventDefault();
+                allcheckbox = $('input[type=checkbox]').prop('checked', true);
+            });
 
-</script>   
+        </script>   
 
 @endsection
 

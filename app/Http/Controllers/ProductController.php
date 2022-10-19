@@ -48,6 +48,15 @@ class ProductController extends Controller
 
   }
 
+  public function allproducts() {
+     
+    $products = Product::orderBy('created_at', 'desc')->paginate(12);
+
+    return response()->json($products);
+
+  }
+
+
   public function create()
   {
     return view('products.create');
