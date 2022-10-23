@@ -2,9 +2,9 @@ import './bootstrap';
 
 
 import { createApp } from "vue/dist/vue.esm-bundler";
-import Pagination from './components/pagination.vue'
+import Content from './components/content.vue'
 
-const app = createApp({})
-app.component('pagination', Pagination)
+const content = createApp({})
 
-app.mount('#app')
+content.component('content', Content)
+content.mount('#content-products')

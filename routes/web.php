@@ -24,6 +24,7 @@ Route::controller(ProductController::class)->group(function() {
 
     // TODOS LOS PRODUCTOS
     Route::get('products/index', 'index')->name('products.index');
+    Route::get('products/allproducts', 'allproducts')->name('products.allproducts');
 
     // CREACIÓN DEL PRODUCTO
     Route::get('products/create', 'create')->name('products.create');
