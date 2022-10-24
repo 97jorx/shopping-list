@@ -14,7 +14,7 @@
     </div>
 
     @if ($products->isNotEmpty())
-        <div id="content-products" class="products-box flex flex-wrap content-center gap-5">
+        <div id="content-products" class="products-box flex flex-wrap gap-5">
             <content></content>            
         </div>
         

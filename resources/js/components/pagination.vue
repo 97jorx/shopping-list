@@ -1,5 +1,8 @@
 <template>
-  <nav class="justify-center w-full inline-flex" ara-label="Page navigation example">
+  <nav
+    class="justify-center w-full inline-flex mt-10"
+    ara-label="Page navigation example"
+  >
     <ul class="inline-flex items-center -space-x-px">
       <li>
         <a

@@ -1,7 +1,7 @@
 <template>
   <div v-for="product in products.data" :key="product.id">
     <div
-      class="text-grey-300 h-36 lg:h-36 lg:w-full md:w-72 sm:w-full mx-6 font-bold text-center shadow-xl border-gray-400 border-2 rounded-2xl"
+      class="text-grey-300 h-32 lg:h-36 lg:w-72 md:w-72 sm:w-full font-bold text-center shadow-xl border-gray-400 border-2 rounded-2xl"
     >
       <div class="flex justify-end px-4 pt-2">
         <button
