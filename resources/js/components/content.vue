@@ -1,7 +1,7 @@
 <template>
   <div v-for="product in products.data" :key="product.id">
     <div
-      class="text-grey-300 h-32 lg:h-36 lg:w-72 md:w-72 sm:w-full font-bold text-center shadow-xl border-gray-400 border-2 rounded-2xl"
+      class="text-grey-300 w-56 h-32 mx:w-46 lg:w-72 md:w-56 sm:w-56 font-bold text-center shadow-xl border-gray-400 border-2 rounded-2xl"
     >
       <div class="flex justify-end px-4 pt-2">
         <button
@@ -57,7 +57,8 @@
       <h2 class="m-4 lg:m-4 md:m-3 sm:m-6">{{ product.nombre }}</h2>
     </div>
   </div>
-  <Pagination :products="this.products"></Pagination>
+  {{ page }}
+  <Pagination :products="products" @change="getProducts" ></Pagination>
 </template>
 
 <script>
@@ -65,23 +66,21 @@ import Pagination from "./pagination.vue";
 
 export default {
   components: { Pagination },
-  data() {
-    return {
+  data: () => ({
       products: [],
-      productsShow: "/products/show/",
-      productsEdit: "/products/edit/",
-      productsDelete: "/products/delete/",
-    };
-  },
+      page: null,
+  }),
   mounted() {
     this.getProducts();
   },
   methods: {
-    async getProducts() {
-      let res = await axios.get("/products/index");
+    async getProducts(page) {
+      let res = await axios.get("/products/index?page=" + page);
       this.products = res.data.products;
-      //   console.log(res.data);
     },
+    getPage(value) {
+      this.page = value;
+    }
   },
 };
 </script>
