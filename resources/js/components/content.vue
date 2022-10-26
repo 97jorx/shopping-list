@@ -57,12 +57,13 @@
       <h2 class="m-4 lg:m-4 md:m-3 sm:m-6">{{ product.nombre }}</h2>
     </div>
   </div>
-  {{ page }}
   <Pagination :products="products" @change="getProducts" ></Pagination>
 </template>
 
 <script>
+import useProducts from "../products";
 import Pagination from "./pagination.vue";
+import { onMounted } from "vue";
 
 export default {
   components: { Pagination },
@@ -70,17 +71,12 @@ export default {
       products: [],
       page: null,
   }),
-  mounted() {
-    this.getProducts();
-  },
-  methods: {
-    async getProducts(page) {
-      let res = await axios.get("/products/index?page=" + page);
-      this.products = res.data.products;
-    },
-    getPage(value) {
-      this.page = value;
-    }
+  setup() {
+    
+    const { products, getProducts } = useProducts();
+    onMounted(() => getProducts() )
+
+    return { products, getProducts }
   },
 };
 </script>
