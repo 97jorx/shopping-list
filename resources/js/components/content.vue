@@ -85,7 +85,7 @@ export default {
     }
   },  
   watch: {
-    showPagined() {
+    pagined() {
       return this.pagined;
     }
   },
