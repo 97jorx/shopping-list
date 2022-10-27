@@ -71,9 +71,6 @@ export default {
     products: [],
     pagined: [],
   }),
-  mounted() {
-    console.log(this.products) 
-  },
   setup() {
     const { products, getProducts } = useProducts();
     onMounted(() => getProducts() )

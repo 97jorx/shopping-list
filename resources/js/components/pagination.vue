@@ -3,30 +3,30 @@
     class="justify-center w-full inline-flex mt-10"
     ara-label="Page navigation example"
   >
-    <ul class="inline-flex items-center -space-x-px">
-      <a
+    <div class="inline-flex items-center -space-x-px">
+      <button
         v-if="page != 1"
-        @click="getPage(page--)"
+        @click="getPage(--page)"
         class="cursor-pointer py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
       >
-        PREVIOUS</a
+        PREVIOUS</button
       >
-      <a
-        v-for="numberPage in pages.slice(page - 1, page + 5)"
-        :key="numberPage"
+      <button
+        v-for="numberPage in pages.slice(page-1, page+5)"
+        :key="numberPage" :id="numberPage"
         v-bind:class="(numberPage == page)?'text-red-500':''"
         @click="getPage(numberPage)"
         class="cursor-pointer py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-        >{{ numberPage }}</a
+        >{{ numberPage }}</button
       >
-      <a
+      <button
         v-if="page < pages.length"
-        @click="getPage(page++)"
+        @click="getPage(++page)"
         class="cursor-pointer py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
       >
-        NEXT</a
+        NEXT</button
       >
-    </ul>
+    </div>
   </nav>
 </template>
 
@@ -52,7 +52,6 @@ export default {
   methods: {
     getPage(page) {
       this.page = page;
-      console.log(page);
       this.$emit("change", this.paginate());
     },
     getData(data) {
