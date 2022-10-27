@@ -1,5 +1,5 @@
 <template>
-  <div v-for="product in products.data" :key="product.id">
+  <div v-for="product in pagined" :key="product.id">
     <div
       class="text-grey-300 w-56 h-32 mx:w-46 lg:w-72 md:w-56 sm:w-56 font-bold text-center shadow-xl border-gray-400 border-2 rounded-2xl"
     >
@@ -57,7 +57,7 @@
       <h2 class="m-4 lg:m-4 md:m-3 sm:m-6">{{ product.nombre }}</h2>
     </div>
   </div>
-  <Pagination :products="products" @change="getProducts" ></Pagination>
+  <Pagination :products="products" @change="setProductsPagined" ></Pagination>
 </template>
 
 <script>
@@ -68,15 +68,26 @@ import { onMounted } from "vue";
 export default {
   components: { Pagination },
   data: () => ({
-      products: [],
-      page: null,
+    products: [],
+    pagined: [],
   }),
+  mounted() {
+    console.log(this.products) 
+  },
   setup() {
-    
     const { products, getProducts } = useProducts();
     onMounted(() => getProducts() )
-
     return { products, getProducts }
+  },
+  methods: {
+    setProductsPagined(data) {
+      this.pagined = data;
+    }
+  },  
+  watch: {
+    showPagined() {
+      return this.pagined;
+    }
   },
 };
 </script>

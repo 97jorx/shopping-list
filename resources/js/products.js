@@ -6,7 +6,7 @@ export default function useProducts() {
 
     const products = ref([]);
 
-    const getProducts = async (page) => {
+    const getProducts = async (page = 1) => {
         axios.get('/products/index?page=' + page)
         .then(res => {
             products.value = res.data.products;
