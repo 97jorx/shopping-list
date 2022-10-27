@@ -5,23 +5,24 @@
   >
     <ul class="inline-flex items-center -space-x-px">
       <a
-        v-if="page != 0"
-        @click="page--"
-        class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+        v-if="page != 1"
+        @click="getPage(page--)"
+        class="cursor-pointer py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
       >
         PREVIOUS</a
       >
       <a
-        v-for="numberPage in pages.slice(page + 1, page + 5)"
+        v-for="numberPage in pages.slice(page - 1, page + 5)"
         :key="numberPage"
+        v-bind:class="(numberPage == page)?'text-red-500':''"
         @click="getPage(numberPage)"
-        class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+        class="cursor-pointer py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
         >{{ numberPage }}</a
       >
       <a
-        v-if="page != pages.length"
-        @click="page++"
-        class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+        v-if="page < pages.length"
+        @click="getPage(page++)"
+        class="cursor-pointer py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
       >
         NEXT</a
       >
@@ -51,6 +52,7 @@ export default {
   methods: {
     getPage(page) {
       this.page = page;
+      console.log(page);
       this.$emit("change", this.paginate());
     },
     getData(data) {
@@ -58,7 +60,7 @@ export default {
     },
     totalPages() {
       let totalPages = Math.ceil(this.getAllItems.length / this.eachPages);
-      for (let i = 0; i <= totalPages; i++) {
+      for (let i = 1; i <= totalPages; i++) {
         this.pages.push(i);
       }
     },
@@ -77,6 +79,7 @@ export default {
     products: function (newData) {
       this.getData(newData);
       this.totalPages();
+      this.getPage(this.page);
     },
   },
 };
