@@ -15,19 +15,8 @@ return new class extends Migration
     {
         Schema::create('product_list', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedBigInteger('list_id');
-            $table->uuid('product_id');
-
-            $table->foreign('list_id')
-                  ->references('id')
-                  ->on('shopping_lists');
-
-
-            $table->foreign('product_id')
-                  ->references('id')
-                  ->on('products');
-
+            $table->foreignId('shopping_list_id')->constrained();
+            $table->foreignId('product_id')->constrained();
             $table->timestamps();
         });
     }
@@ -40,8 +29,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('product_list', function (Blueprint $table) {
+            $table->dropForeign(['shopping_list_id']);
             $table->dropForeign(['product_id']);
-            $table->dropForeign(['list_id']);
         });
 
         Schema::dropIfExists('product_list');

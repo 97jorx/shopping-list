@@ -4,10 +4,10 @@
         function addProductList(e) {
             
             e.preventDefault();
-            let product_id = e.target.id;
-            let list_id = $('#list-id').val();
+            let products_id = e.target.id;
+            let shopping_lists_id = $('#list-id').val();
             
-            create(list_id, product_id);
+            create(shopping_lists_id, products_id);
 
         }  
 

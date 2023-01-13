@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-
-    public $incrementing = false;
-
-    use Uuids;
     use HasFactory;
 
 
+    public function product_list() {
+        return $this->hasMany(ProductList::class, 'products_id');
+    }
 
 
-
+    public function lists() {
+        return $this->belongsToMany(ShoppingList::class, 'product_list');
+    }
 }

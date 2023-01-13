@@ -20,12 +20,12 @@ class ProductListController extends Controller
             return response()->json(false);      
         } 
   
-      $list_id = $request->list;
-      $product_id = $request->product;
+      $shopping_lists_id = $request->list;
+      $products_id = $request->product;
   
       $productlist = new ProductList();
-      $productlist->list_id = $list_id;
-      $productlist->product_id = $product_id;
+      $productlist->shopping_lists_id = $shopping_lists_id;
+      $productlist->products_id = $products_id;
       $productlist->save(); 
   
       return response()->json(true);
@@ -49,7 +49,7 @@ class ProductListController extends Controller
 
         foreach($items as $item) {
               $data .= '
-                <tr class="hidden bg-white list-'.$item->list_id.' ">
+                <tr class="hidden bg-white list-'.$item->shopping_lists_id.' ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         '.$item->nombre.'
                     </th>

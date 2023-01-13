@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class ShoppingList extends Model
 {
-    public $incrementing = false;
-
     use HasFactory;
+
+    public function product_list() {
+        return $this->hasMany(ProductList::class, 'shopping_lists_id');
+    }
+
+    public function product() {
+        return $this->belongsToMany(Product::class, ProductList::class, 'shopping_lists_id', 'products_id');
+    }
+
 }

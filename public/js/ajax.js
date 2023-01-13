@@ -1,4 +1,4 @@
-function create(list_id, product_id) {
+function create(shopping_lists_id, products_id) {
 
     $.ajaxSetup({
         headers: {
@@ -11,14 +11,14 @@ function create(list_id, product_id) {
         type: "POST",
         url: "/productlist/additem",
         data: { 
-            'list': list_id,
-            'product': product_id
+            'list': shopping_lists_id,
+            'product': products_id
         }, 
         success: function(data) {
             console.log(data);
         },
         complete: function() {
-            update(list_id)
+            update(shopping_lists_id)
         }
         
     });

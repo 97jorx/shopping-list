@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
+| routes are loaded by the RouteServiceProvider within a group which3
 | contains the "web" middleware group. Now create something great!
 |
 */
@@ -43,6 +43,9 @@ Route::controller(ProductController::class)->group(function() {
     //SEARCH DEL PRODUCTO
     Route::post('/product/search', 'search')->name('product.search');
 
+        
+    Route::get('/products/prueba', 'prueba')->name('products.prueba');
+
 
 });
 
@@ -61,8 +64,12 @@ Route::controller(ShoppingListController::class)->group(function() {
     // BORRADO DE LA LISTA
     Route::delete('lists', 'delete')->name('lists.delete');
 
-
 });
+
+
+
+
+
 
 Route::controller(ProductListController::class)->group(function() {
 

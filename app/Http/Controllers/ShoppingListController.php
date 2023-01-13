@@ -48,7 +48,7 @@ class ShoppingListController extends Controller
     $message = '';
     if($request->has('checkbox')) {
         $array = $request->input('checkbox');
-        ProductList::whereIn('list_id', $array)->delete();
+        ProductList::whereIn('shopping_lists_id', $array)->delete();
         ShoppingList::whereIn('id', $array)->delete();
         $message = 'Se ha eliminado correctamente';
     } else {

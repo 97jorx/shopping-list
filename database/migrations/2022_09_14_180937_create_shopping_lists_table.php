@@ -18,8 +18,8 @@ return new class extends Migration
             $table->id();
             $table->text('nombre');
             $table->text('descripcion')->nullable();
-            // $table->uuid('product_id');
-            // $table->foreign('product_id')->references('id')->on('products');
+            // $table->uuid('products_id');
+            // $table->foreign('products_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

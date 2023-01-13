@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Uuids;
 use App\Models\Product;
+use App\Models\ProductList;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProduct;
+use App\Models\ShoppingList;
 
 class ProductController extends Controller
 {
@@ -62,6 +64,23 @@ class ProductController extends Controller
 
   }
 
+
+  public function prueba()
+  {
+
+    $products = Product::all();
+    $lists = ShoppingList::all();
+    $product_lists = ProductList::all();
+
+    foreach($products as $product) {
+      echo '<a>'. $product->nombre .'</a>';
+      echo '</tr>';
+      foreach ($product->lists as $list) {
+        echo '<a> Pertenece a la lista: '. $list->id .'</a>';
+      }
+    }
+    
+  }
 
   public function create()
   {
